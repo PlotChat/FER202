@@ -1,0 +1,168 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0 auto;
+	background: rgb(239, 239, 239);
+}
+
+.Slot3 {
+	width: 80%;
+	margin: 0 auto;
+	font-family: sans-serif;
+	min-height: 100dvh;
+	padding-top: 2rem;
+}
+
+.Slot3 > * + * {
+	margin-top: 3rem;
+}
+
+.slot3Title {
+	font-size: 5rem;
+	color: rgb(148, 0, 0);
+}
+
+.form {
+	& h3 {
+		margin: 0;
+		font-size: 4rem;
+	}
+
+	& h4 {
+		font-size: 2rem;
+		width: 40%;
+	}
+
+	& span {
+		font-weight: 400;
+	}
+}
+
+.hobby {
+	--bg: lightblue;
+	--border-radius: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+
+	width: 50%;
+	gap: 0.6rem;
+
+	padding: 0.6rem;
+
+	background: var(--bg);
+	border: color-mix(in srgb, var(--bg) 90%, black) solid 2px;
+	border-radius: var(--border-radius);
+
+	.title {
+		flex: 1;
+		background-color: color-mix(in srgb, var(--bg) 93%, black);
+		border-radius: var(--border-radius);
+		font-size: 2rem;
+		text-align: center;
+		align-content: center;
+		padding-inline: 2rem;
+	}
+
+	.content {
+		position: relative;
+		flex: 3;
+		background-color: color-mix(in srgb, var(--bg) 93%, black);
+		border-radius: var(--border-radius);
+		font-size: 2rem;
+		padding: 0.6rem 2rem;
+	}
+}
+
+.online {
+	font-size: 2rem;
+	font-weight: 500;
+
+	& span {
+		font-weight: bold;
+		color: green;
+	}
+}
+
+.socials {
+	position: relative;
+	display: flex;
+	width: max-content;
+	background-color: white;
+
+	padding: 2rem;
+	border-radius: 2rem;
+	align-items: center;
+	gap: 2rem;
+
+	& img {
+		width: 10rem;
+		aspect-ratio: 1/1;
+		border-radius: 999px;
+	}
+}
+
+
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+.socials::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	inset: -2% -1%;
+	border-radius: 2.4rem;
+	filter: blur(8px);
+	background-image: conic-gradient(from var(--angle), #a100ffff, #119cfdff, #a100ffff);
+	animation: rotateSocialsBorderColor linear infinite 3s;
+}
+
+@keyframes rotateSocialsBorderColor {
+	to {
+		--angle: 360deg;
+	}
+}
+
+.socialsContent {
+	& button {
+		cursor: pointer;
+		transition:
+			scale 0.2s,
+			box-shadow 0.2s;
+		box-shadow: 0;
+		padding: 0.5rem 0.8rem;
+		min-width: 10rem;
+
+		&:hover {
+			scale: 1.05;
+			box-shadow: 0px 7px 23px -9px rgba(0, 0, 0, 0.55);
+		}
+
+		&[data-state="following"] {
+			background-color: rgb(78, 197, 78);
+			text-align: center;
+			font-weight: bold;
+			color: rgb(222, 255, 222);
+			border: 0;
+			border-radius: 0.5rem;
+
+			transition:
+				background-color 0.35s,
+				color 0.35s,
+				border-width 0.35s,
+				border-radius 0.35s;
+		}
+	}
+}
+
+/* 
+*{
+  outline: color-mix(in srgb, lime 90%, transparent )2px solid;
+} */
