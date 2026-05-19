@@ -1,0 +1,70 @@
+/* General Resets */
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+html {
+  /* Resize font size relative to rem for better styling */
+  font-size: 62.5%;
+}
+
+/* 4. Create a root stacking context */
+#root, #__next {
+  isolation: isolate;
+}
+
+/* Resets for Elements */
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--step-6); }
+h2 { font-size: var(--step-5); }
+h3 { font-size: var(--step-4); }
+h4 { font-size: var(--step-3); }
+h5 { font-size: var(--step-2); }
+h6 { font-size: var(--step-1); }
+
+p {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+/* Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
